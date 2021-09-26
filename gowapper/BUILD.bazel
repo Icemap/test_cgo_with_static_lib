@@ -1,0 +1,19 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+load("@bazel_gazelle//:def.bzl", "gazelle")
+
+# gazelle:prefix github.com/Icemap/test_cgo_with_static_lib/gowapper
+# gazelle:proto disable
+gazelle(
+    name = "gazelle",
+)
+
+go_library(
+    name = "gowapper",
+    cdeps = ["//lib:libtest_calc"],
+    srcs = ["wapper.go"],
+    cgo = True,
+    clinkopts = ["-Llib -ltest_calc"],
+    copts = ["-Ilib"],
+    importpath = "github.com/Icemap/test_cgo_with_static_lib/gowapper",
+    visibility = ["//visibility:public"],
+)

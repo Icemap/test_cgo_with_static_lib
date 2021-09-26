@@ -1,1 +1,2 @@
-bazel-*
+static_lib/bazel-*
+main/bazel-*

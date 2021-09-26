@@ -1,0 +1,8 @@
+cc_import(
+    name = "libtest_calc",
+    static_library = "libtest_calc.a",
+    hdrs = [
+        "test_calc.h",
+    ],
+    visibility = ["//visibility:public"],
+)
